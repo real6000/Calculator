@@ -1,60 +1,161 @@
- body{
-    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:#222;
-    color:#eee;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
- }
-
- .calculator{
-    background:#333;
-    padding:20px;
-    border-radius:12px;
-    box-shadow: 0 0 15px #000;
-    width: 320px;
- }
-
- .display{
-    background:#111;
-    color:#0f0;
-    font-size: 2rem;
-    padding:15px;
-    border-radius:8px;
-    text-align:right;
-    margin-bottom:20px;
-    min-height:50px;
-    user-select:none;
- }
+ @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap');
  
- .buttons{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:12px;
+ body{
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Plus Jakarta Sans', sans-serif;
  }
 
- button{
-    padding:18px 0;
-    font-size: 1.2rem;
-    border: none;
-    border-radius:8px;
-    background:#555;
-    color:#eee;
-    cursor:pointer;
-    transition:background 0.2s ease;
- }
+.calculator {
+  width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
 
- button:hover{
-    background: #777;
- }
+.display {
+  background: rgba(0, 0, 0, 0.4);
+  color: #00ff99;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ff99aa;
+  text-align: right;
+  user-select: none;
+  min-height: 70px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  overflow-x: auto;
+}
+ 
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+button {
+  background: linear-gradient(145deg, #1f1f1f, #121212);
+  border: none;
+  border-radius: 15px;
+  color: #00ff99;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px #0c0c0c,
+    -4px -4px 8px #2a2a2a;
+transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
+  user-select: none;
+  padding: 22px 0;
+  text-align: center;
+}
+button:hover {
+  background: linear-gradient(145deg, #00ff99, #00cc77);
+  color: #111;
+  box-shadow:
+    0 0 15px #00ff99,
+    inset 0 0 15px #00ff99;
+}
 
- button.operator{
-    background:#f57c00;
-    color:white;
- }
+button:active {
+  transform: scale(0.95);
+  box-shadow: inset 4px 4px 8px #0c0c0c;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
 
- button.operator:hover{
-    background:#fc8c00;
- }
+button.operator {
+  background: linear-gradient(145deg, #006622, #004d19);
+  color: #aaffcc;
+  font-weight: 700;
+  box-shadow:
+    4px 4px 10px #004d19,
+    -4px -4px 10px #008833;
+}
+
+
+button.operator:hover {
+  background: linear-gradient(145deg, #00cc77, #00994d);
+  color: #001a00;
+  box-shadow:
+    0 0 20px #00cc77,
+    inset 0 0 20px #00cc77;
+}
+
+button.operator:active {
+  transform: scale(0.95);
+  box-shadow: inset 4px 4px 8px #004d19;
+}
+
+button#clear {
+  background: linear-gradient(145deg, #660000, #330000);
+  color: #ff9999;
+  font-weight: 700;
+  box-shadow:
+    4px 4px 10px #330000,
+    -4px -4px 10px #990000;
+}
+
+button#clear:hover {
+  background: linear-gradient(145deg, #ff5555, #cc3333);
+  color: #330000;
+  box-shadow:
+    0 0 20px #ff5555,
+    inset 0 0 20px #ff5555;
+}
+
+button#clear:active {
+  transform: scale(0.95);
+  box-shadow: inset 4px 4px 8px #330000;
+}
+
+button#equals {
+  grid-row: span 2;
+  background: linear-gradient(145deg, #004466, #002233);
+  color: #99ddff;
+  font-weight: 700;
+  box-shadow:
+    4px 4px 12px #002233,
+    -4px -4px 12px #005588;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+button#equals:hover {
+  background: linear-gradient(145deg, #3399ff, #0066cc);
+  color: #001933;
+  box-shadow:
+    0 0 25px #3399ff,
+    inset 0 0 25px #3399ff;
+}
+
+button#equals:active {
+  transform: scale(0.95);
+  box-shadow: inset 4px 4px 8px #002233;
+}
+
+button[style*="grid-column: span 2;"] {
+  grid-column: span 2;
+}
+
+@keyframes flash {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.display.update-flash {
+  animation: flash 0.3s ease;
+}

@@ -7,7 +7,10 @@ let operator = null;
 let justCalculated = false;
 
 function updateDisplay() {
-    display.textContent = currentInput || '0';
+  display.textContent = currentInput || '0';
+  display.classList.remove('update-flash');
+  void display.offsetWidth; // trigger reflow to restart animation
+  display.classList.add('update-flash');
 }
 
 function calculate(){
