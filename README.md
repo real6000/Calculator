@@ -7,7 +7,16 @@ but that's just maybe cause this is just a basic thing that I wanted to work on 
 
 <h2>Functions and features:</h2>
 • Animation on button press
+
+
 • Click sound on button press
+
+
 • Of course the basic functions of a calculator
+
+
 • Cool design in my opinion
+
+
 • Scientific functions as well.
+
