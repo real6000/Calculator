@@ -159,3 +159,27 @@ button[style*="grid-column: span 2;"] {
 .display.update-flash {
   animation: flash 0.3s ease;
 }
+
+#toggle-scientific {
+  width: 100%;
+  background: linear-gradient(145deg, #006699, #004466);
+  color: #aaddff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow:
+    2px 2px 6px #002233,
+    -2px -2px 6px #005577;
+  transition: all 0.25s ease;
+}
+
+#toggle-scientific:hover {
+  background: linear-gradient(145deg, #33aaff, #0088cc);
+  box-shadow:
+    0 0 10px #33aaff,
+    inset 0 0 10px #33aaff;
+  color: #00111a;
+}

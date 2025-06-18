@@ -1,5 +1,7 @@
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.buttons button');
+const sciPanel = document.getElementById('scientific-panel');
+const toggleSciBtn = document.getElementById('toggle-scientific');
 
 let currentInput = '';
 let previousInput = '';
@@ -78,4 +80,53 @@ buttons.forEach(button => {
         }
         updateDisplay();
     });
+});
+
+// Toggle visibility
+toggleSciBtn.addEventListener('click', () => {
+  sciPanel.style.display = sciPanel.style.display === 'none' ? 'grid' : 'none';
+});
+
+// Handle scientific function clicks
+document.querySelectorAll('.sci-func').forEach(btn => {
+  btn.addEventListener('click', () => {
+    let value = parseFloat(currentInput);
+    if (isNaN(value)) return;
+
+    let result;
+    const func = btn.textContent;
+
+    switch (func) {
+      case 'sin':
+        result = Math.sin(value * Math.PI / 180); // degrees
+        break;
+      case 'cos':
+        result = Math.cos(value * Math.PI / 180);
+        break;
+      case 'tan':
+        result = Math.tan(value * Math.PI / 180);
+        break;
+      case '√':
+        result = Math.sqrt(value);
+        break;
+      case '^':
+        if (previousInput) {
+          result = Math.pow(parseFloat(previousInput), value);
+          previousInput = '';
+        } else {
+          previousInput = currentInput;
+          currentInput = '';
+          operator = '^'; // store power mode
+          return;
+        }
+        break;
+      case 'log':
+        result = Math.log10(value);
+        break;
+    }
+
+    currentInput = result.toString();
+    justCalculated = true;
+    updateDisplay();
+  });
 });
